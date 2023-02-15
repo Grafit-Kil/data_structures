@@ -185,16 +185,16 @@ void foo(int bar, int baz) {
 - **Faktöriyel(Factorial): $O(n!)$**
 
 Faktöriyel karmaşıklığı az veri miktarı ile çalışsa bile zaman ve alan tüketimi devasadır. 
-$5! = 120$
-$10! = 3628800$
-$15! = 1307674368000$
+$5! = 120$ \
+$10! = 3628800$ \
+$15! = 1307674368000$ \
 $20! = 2432902008176640000$
 
 > $\(f(x) = x!\) \space \space \space \space \space   => O(n!)$
 ```cpp
-int foo(int bar) {
+void foo(int bar) {
     for(unsigned int i = 0; i < bar; i++){
-       return foo(bar - 1);
+       foo(bar - 1);
     }
 }
 ```
