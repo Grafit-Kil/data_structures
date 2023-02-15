@@ -10,14 +10,12 @@ Veri yapıları: Belirli bir düzende veriyi **depolama(Storing)** , veriye **er
 
 - ***Karmaşıklık(Complexity)*** : Yapı ile etkileşime girerken gerçekleşen herbir süreç için gereken kaynağın matematiksel çözümlenmesi.
 
-<div class="warning" style='background-color:#a193ba; color: #19337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
-<span>
-<p style='margin-top:1em; text-align:center'></p>
-<p style='margin-left:1em; font-family:Monospace;'>
-"Kodun, veriye göre tasarlanmasını şiddetle tavsiye ediyorum, yapılan tam tersi olsada ve bence git'in oldukça başarılı olmasının nedenlerinden biri de budur... Aslında iddia ettiğim bir şey var: kötü bir programcı ile iyi bir programcı arasındaki fark, kodun mu yoksa veri yapıları ve onların ilişkilerini mi daha önemli olduklarını görmeleridir. Kötü programcılar kodla, iyi programcılar veri yapıları ve onların ilişkileri ile ilgilenirler."<br><br>
-<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Linus Torvalds</b> <i>( <a href="https://lwn.net/Articles/193245/">29 Temmuz 2006</a> )</i>
-</span>
-</div>
+---
+
+"Kodun, veriye göre tasarlanmasını şiddetle tavsiye ediyorum, yapılan tam tersi olsada ve bence git'in oldukça başarılı olmasının nedenlerinden biri de budur... Aslında iddia ettiğim bir şey var: kötü bir programcı ile iyi bir programcı arasındaki fark, kodun mu yoksa veri yapıları ve onların ilişkilerini mi daha önemli olduklarını görmeleridir. Kötü programcılar kodla, iyi programcılar veri yapıları ve onların ilişkileri ile ilgilenirler."
+Linus Torvalds
+
+<div style="text-align: right; color:#352335 ; font-weight:bold;">Linus Torvalds <a href="https://lwn.net/Articles/193245/">29 Temmuz 2006</a></div>
 
 ---
 
@@ -104,7 +102,7 @@ int foo(const std::vector<int> &vec, int bar){
 
 - **Doğrusal(Linear): $O(n)$**
 
-O(n) karmaşıklığı, veri miktarı ile doğru orantılıdır.
+O(n) karmaşıklığında maliyet, veri miktarı ile ters orantılıdır.
 > $\(f(x) = x + 1\) \space \space \space \space \space   => O(n)$
 
 ```cpp
@@ -150,7 +148,7 @@ void foo(std::vector<int> &vec){
 
 - **Polinomsal(Polynomial): $(n^p)$**
 
-Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik($O(n^3)$) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1)$ ile $O(\infty)$ arasında olabilir.
+Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik( $O(n^3)$ ) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1)$ ile $O(\infty)$ arasında olabilir.
 > $\(f(x) = x^y + ...\) \space \space \space \space \space   => O(n^y)$
 ```cpp
 void foo(std::vector<int> &vec){
@@ -159,6 +157,8 @@ void foo(std::vector<int> &vec){
             for (std::size_t k = 0; k < vec.size(); k++) {
                 for (std::size_t x = 0; x < vec.size(); x++) {
                 ...                               
+                }
+            }
         }
     }
 }
