@@ -6,13 +6,13 @@
 1. [Ön söz](#1-ön-söz)
    1. [Kullanınlan Araçlar ve Ortam](#başlarken)
 2. [Veri Yapıları Nedir?](./giris/README.md/#veri-yapıları-nedir)
-   1. [Algoritma Analizi](#)
+   1. [Algoritma Analizi](./giris/README.md/#algoritma-analizi)
 
 ---
 
 ## 1. Ön Söz
 
-Bu belgenin ortaya çıkış amacı, veri yapıları konusundaki birçok belgenin dağınık olması ve çalışmalarım sırasında kullandığım birçok belgenin genel bir bakış kazanmak için yeterince açık olmamasıdır. Bu belge oluşturulurken birçok kaynağa başvurulmuştur ve her bir belge liste olarak ya da dipnot olarak paylaşılmıştır. Belgeleme çalışmasının yararlı olduğunu düşünüyorum ve öğrendiklerimi başka insanlarla paylaşmak istiyorum. Ancak, belirtmeliyim ki, sunum tamamen şahsi tasavvurumu yansıtmaktadır ve bu yüzden bu belge doğrudan referans olarak kullanılması hedeflenmez. Yanlışlar, eksiklikler veya iyileştirme konularında kendinizi katkı yapmaktan alıkoymayın. Belge, veri yapılarına giriş yapmadan önce ortam kurulumu ve kullanımı hakkında kısa bir rehber içermektedir. Umarım bu belge veri yapılarını keşfetme yolculuğunuzda size yararlı olur. İyi okumalar.
+Bu belgenin ortaya çıkış amacı, veri yapıları konusundaki birçok belgenin dağınık olması ve çalışmalarım sırasında kullandığım birçok belgenin genel bir bakış kazanmak için yeterince açık olmamasıdır. Bu belge oluşturulurken birçok kaynağa başvurulmuştur ve her bir belge, liste ya da dipnot olarak paylaşılmıştır. Belgeleme çalışmasının yararlı olduğunu düşünüyorum ve öğrendiklerimi başka insanlarla paylaşmak istiyorum. Ancak, belirtmeliyim ki, sunum tamamen şahsi tasavvurumu yansıtmaktadır ve bu yüzden bu belge doğrudan referans olarak kullanılması hedeflenmez. Yanlışlar, eksiklikler veya iyileştirme konularında kendinizi katkı yapmaktan alıkoymayın. Belge, veri yapılarına giriş yapmadan önce ortam kurulumu ve kullanımı hakkında kısa bir rehber içermektedir. Umarım bu belge veri yapılarını keşfetme yolculuğunuzda size yararlı olur. İyi okumalar.
 
 -------------------------
 # Başlarken
@@ -32,23 +32,24 @@ Başlamadan önce, içerik hazırlanırken kullanlan bazı kaynak ve araçlardan
 ####  Ubuntu
 
 ```bash
-  sudo apt install build-essential
-  sudo apt-get install valgrind
+sudo apt install build-essential
+sudo apt-get install valgrind
 ```
 #### Arch Linux
 
 ```bash
-  sudo pacman -S gcc
-  sudo pacman -S valgrind
+sudo pacman -S gcc
+sudo pacman -S valgrind
 ```
 
 #### Fedora
 
 ```bash
-  sudo dnf install gcc-c++
-  sudo dnf install valgrind # NOT: dnf ile sorun yaşamanız halinde veritabanını yum ile güncelleniyiz.
+sudo dnf install gcc-c++
+sudo dnf install valgrind # NOT: dnf ile sorun yaşamanız halinde veritabanını yum ile güncelleniyiz.
 ``` 
 ---
+
 ### Test
 
 ```cpp
