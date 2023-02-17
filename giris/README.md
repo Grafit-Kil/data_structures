@@ -55,7 +55,7 @@ Karmaşıklık düzeyleri en azdan en çoğa doğru aşağıda ufak kod parçac�
 | Karmaşıklık | $n = 10, \space p = 4$ | $n = 100, \space p = 4$ |
 |----------|----------|----------|
 | **Sabit(Constant): $O(1)$**| $1$ | $1$ |
-| **Logaritmik(Logarithmic): $O(log \space n)$** | 2 | 4|
+| **Logaritmik(Logarithmic): $O(log \space n)$** | 3 | 6|
 | **Karekök(Square Root): $O(\sqrt{n})$** | 3 | 10 |
 | **Doğrusal(Linear): $O(n)$** | 10 | 100 |
 | **Doğrusal-Logaritmik(Linearithmic): $O(n \space log \space n)$** | 20 | 400 |
