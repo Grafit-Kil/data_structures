@@ -35,6 +35,8 @@ Bu aşamada karşımıza bilgisayar bilimlerinde son derece önemli olan iki kav
 
 ## $Big-O \ Notation$
 
+Bir işlevin veya sistemin artan veri miktarına orantılı olarak maliyet değişimi göstergesidir. Big-O, işlevin/sistemin ne kadar maliyetli olduğunu doğrudan açıklamayı değil matematiksel düzeyde anlayışın ve iletişimin kolaylaşmasını sağlar.
+
 - **Big O (O):** Algoritmanın çalışma veya alan karmaşıklığının üst sınırını(en kötü durum) gösterir.
 - **Big Omega $(\Omega)$:** Algoritmanın çalışma veya alan karmaşıklığının alt sınırını(en iyi durum) gösterir.
 - **Big Theta $(\Theta)$:** Algoritmanın çalışma veya alan karmaşıklığının ortalamasını gösterir.
@@ -45,7 +47,7 @@ Bu aşamada karşımıza bilgisayar bilimlerinde son derece önemli olan iki kav
 
 #### Karmaşıklık Düzeyleri
 
-Bir işlevin veya sistemin artan veri miktarına orantılı olarak maliyet değişimi göstergesidir. Karmaşıklık düzeyi, işlevin/sistemin ne kadar maliyetli olduğunu doğrudan açıklamayı değil matematiksel düzeyde anlayışın ve iletişimin kolaylaşmasını sağlar. Karmaşıklık düzeyleri en azdan en çoğa doğru aşağıda ufak kod parçacıklarıyla gösterilmiştir:
+Karmaşıklık düzeyleri en azdan en çoğa doğru aşağıda ufak kod parçacıklarıyla gösterilmiştir:
 
 > **Note**: $n$ => Veri miktarı.
 
@@ -170,7 +172,7 @@ void foo(std::vector<int> &vec){
 
 - **Üstel(Exponential): $(2^n)$**
 
-Veri miktarı çok hızlı artış gösterir ve n büyüdükçe çok daha yavaş çalışmaya başlar. Bkz: [Hücre Bölünmesi](https://www.youtube.com/watch?v=SEejivHRIbE)
+Veri miktarı ve işlem sayısı çok daha hızlı artar. Bkz: [Hücre Bölünmesi](https://www.youtube.com/watch?v=SEejivHRIbE)
 > $\(f(x) = 2^x + 2\) \space \space \space \space \space   => O(2^n)$
 ```cpp
 void foo(int bar, int baz) {
