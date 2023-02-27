@@ -19,10 +19,10 @@ Bu belgenin ortaya çıkış amacı, veri yapıları konusundaki birçok belgeni
 
 ## Kullanınlan Araçlar ve Ortam
 
-Başlamadan önce, içerik hazırlanırken kullanlan bazı kaynak ve araçlardan bahsetmeliyim. Her bir yapının gerçeklenmesi(implementation) ve bazı kod parçacıklarının yazımı C++ ile yapılmaktadır. Programdaki bellek tahsisi(allocate), bellek sızıntısı(memory leak) ve ayrıntılı görselleştirimi için valgrind kullanılmaktadır. Testler Linux altında GNU/GCC compiler ile yapılmaktadır, kodlar taşınabilir(portable) olma gayesi taşımaz. [Godbolt](https://godbolt.org/) ile veya yerel ortamda test edebilirsiniz. 
+Başlamadan önce, içerik hazırlanırken kullanlan bazı kaynak ve araçlardan bahsetmeliyim. Her bir yapının gerçeklenmesi(implementation) ve bazı kod parçacıklarının yazımı C++ ile yapılmaktadır. Programdaki bellek tahsisi(allocate), bellek sızıntısı(memory leak) ve ayrıntılı görselleştirimi için valgrind kullanılmaktadır. Testler Linux altında GNU/GCC ile yapılmaktadır, kodlar taşınabilir(portable) olma gayesi taşımaz. [Godbolt](https://godbolt.org/) ile veya yerel ortamda test edebilirsiniz. 
 
 - Linux
-- C++ (C++11) 
+- C++ (C++20) 
 - GNU/GCC
 - Valgrind
 
