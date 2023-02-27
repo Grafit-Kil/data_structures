@@ -1,6 +1,6 @@
 # Bağlantılı Liste(Linked List)
 
-Bağlantılı Liste, her bir düğümün başka bir düğüme referans olduğu veri yapısıdır. Bu veri yapıları, dinamik boyut, verimli ekleme ve çıkartma gibi bazı avantajlar sağlar, ancak rastgele erişim yavaş olabilir, dinamik olması nedeniyle en az bir işaretçi(pointer) gerektirir ve gerçeklenmesinde kaynak sızıntısı bazı tehlikeleri de içerir. Birçok farklı bağlantılı liste yapısı mevcuttur. İşte sık karşılaşılan bazı yapılar:
+Bağlantılı Liste, her bir düğümün başka bir düğüme referans olduğu veri yapısıdır. Bu veri yapıları, dinamik boyut, verimli ekleme ve çıkartma gibi bazı avantajlar sağlar, ancak rastgele erişim yavaş olabilir, düğümler arasında gezinebilmek için en az bir işaretçi(pointer) gerektirir ve gerçeklenmesinde kaynak sızıntısı bazı tehlikeleri de içerir. Birçok farklı bağlantılı liste yapısı mevcuttur. İşte sık karşılaşılan bazı yapılar:
 
 - Tek Yönlü Bağlantılı Liste(Singly Linked List): Tek yönlü hareketin mümkün olduğu veren veri yapısıdır.
 - Çift Yönlü Bağlantılı Liste(Doubly linked list): Çift yönlü hareketin mümkün olduğu veren veri yapısıdır. 
@@ -11,6 +11,6 @@ Bağlantılı Liste, her bir düğümün başka bir düğüme referans olduğu v
 - (Unrolled linked list)
 - XOR Bağlantılı Liste(XOR linked list)
 
-Tipik olarak bağlantılı listelerin temel işlevleri; düğümler arasında dolaşabilme(traversing), ekleme ve silme işlemleridir. bağlantılı listelere müzik çalarlar, internet gezintisinde ardışık girdiğimiz web siteleri arasında dolaşma, dosya sistemleri ve metin düzenleyicilerde geri alma/yeniden yapma(undo/redo) işlemlerinde uygulanabilir yapılardır.
+Tipik olarak bağlantılı listelerin temel işlevleri; düğümler arasında gezinebilme(traversing), ekleme ve silme işlemleridir. bağlantılı listelere müzik çalarlar, internet gezintisinde ardışık girdiğimiz web siteleri arasında dolaşma, dosya sistemleri ve metin düzenleyicilerde geri alma/yeniden yapma(undo/redo) işlemlerinde uygulanabilir yapılardır.
 
 <h4 align="center"><a href="../giris">< Önceki Sayfa | <a href="singly_linked_list/">Sonraki Sayfa ></a></a></h4>

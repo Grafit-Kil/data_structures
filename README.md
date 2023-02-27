@@ -7,6 +7,8 @@
    1. [Kullanınlan Araçlar ve Ortam](#başlarken)
 2. [Veri Yapıları Nedir?](./giris/README.md/#veri-yapıları-nedir)
    1. [Algoritma Analizi](./giris/README.md/#algoritma-analizi)
+3. [Bağlı Liste(Linked List)](./linked_list)
+    1. [Tek Yönlü Bağlı Liste(Singly Linked List)](./linked_list/singly_linked_list)
 
 ---
 
