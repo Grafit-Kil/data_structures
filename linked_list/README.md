@@ -1,6 +1,6 @@
 # Bağlantılı Liste(Linked List)
 
-Bağlantılı Liste, her bir düğümün başka bir düğüme referans olduğu veri yapısıdır. Bu veri yapıları, dinamik boyut, verimli ekleme ve çıkartma gibi bazı avantajlar sağlar, ancak rastgele erişim yavaş olabilir, düğümler arasında gezinebilmek için en az bir işaretçi(pointer) gerektirir ve gerçeklenmesinde kaynak sızıntısı sebep olabilecek programlama hataları gibi bazı tehlikeleri de içerir. Birçok farklı bağlantılı liste yapısı mevcuttur. İşte sık karşılaşılan bazı yapılar:
+Bağlantılı Liste, her bir düğümün başka bir düğüme referans olduğu veri yapısıdır. Bu veri yapıları, dinamik boyut, verimli ekleme ve çıkartma gibi bazı avantajlar sağlar, sıralı erişim vardır, düğümler arasında gezinebilmek için en az bir işaretçi(pointer) gerektirir ve gerçeklenmesinde kaynak sızıntısına sebep olabilecek programlama hataları gibi bazı tehlikeleri de içerir. Birçok farklı bağlantılı liste yapısı mevcuttur. İşte sık karşılaşılan bazı yapılar:
 
 - Tek Yönlü Bağlantılı Liste(Singly Linked List): Tek yönlü hareketin mümkün olduğu veri yapısıdır.
 - Çift Yönlü Bağlantılı Liste(Doubly linked list): Çift yönlü hareketin mümkün olduğu veri yapısıdır. 
