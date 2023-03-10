@@ -1,6 +1,6 @@
 # Tek Yönlü Bağlantılı Liste(Singly Linked List)
 
-Tek yönlü bağlantılı liste, verilere erişimin sadece düğümler(Node) üzerinde tek yönlü yapılabildiği veri yapılarıdır. Düğümler bellekte rastgele konumlarda yer alır ve erişim işlemi sadece baş düğümün adresine sahip olmakla mümkündür. Baş düğümün adresini kaybetmeden diğer düğümlere erişmek için bir yineleyiciye(iterator) ihtiyaç vardır.
+Tek yönlü bağlantılı liste, verilere erişimin sadece düğümler(Node) üzerinde tek yönlü yapılabildiği veri yapılarıdır. Düğümler bellekte rastgele konumlarda yer alır ve erişim işlemi sadece baş düğümün adresine sahip olmakla mümkündür. Baş düğümün adresini kaybetmeden diğer düğümlere erişmek için bir gezgin(iterator) işaretçiye ihtiyaç vardır.
 
 #### Düğüm Yapısı
 
@@ -37,16 +37,16 @@ Sınıfın üye fonksiyonları şunlardır:
 
 | İşlev | Big O | 
 |-------------- | -------------- |
-| Sona Ekleme | O(1) |
-| Başa Ekleme | O(1) |
-| Sondan Silme | O(1) |
-| Başdan Silme | O(1) |
-| Sıralı Erişim ile Silme | O(n) |
-| Arama | O(n) |
-| Takas | O(n) |
-| Sıralama | O(n^2) |
-| Sıralı Erişim ile Eleman Almak | O(n) |
-| Liste Görüntüleme | O(n) |
+| Sona Ekleme | $O(1)$ |
+| Başa Ekleme | $O(1)$ |
+| Sondan Silme | $O(1)$ |
+| Başdan Silme | $O(1)$ |
+| Sıralı Erişim ile Silme | $O(n)$ |
+| Arama | $O(n)$ |
+| Takas | $O(n)$ |
+| Sıralama | $O(n^2)$ |
+| Sıralı Erişim ile Eleman Almak | $O(n)$ |
+| Liste Görüntüleme | $O(n)$ |
 
 ```cpp
 template <typename T>
@@ -108,7 +108,7 @@ while(iter != nullptr){ // iter eğer nullptr(boş) ise döngü sonlanr.
   //code
 }
 ```
-Bu yöntem O(n) zaman karmaşıklığına sahiptir. Ancak, bir kuyruk (tail) değişkeni kullanarak bu işlem O(1) zaman karmaşıklığına düşürülebilir. Bu yapı, kullanım amacına göre şekillendirilebilir. Örneğin, son giren ilk çıkar(LIFO) veri yapısında kuyruk değişkeni gerekli olmayabilir. Fonksiyon aşağıdaki gibi tanımlanır:
+Bu yöntem $O(n)$ zaman karmaşıklığına sahiptir. Ancak, bir kuyruk (tail) değişkeni kullanarak bu işlem $O(1)$ zaman karmaşıklığına düşürülebilir. Bu yapı, kullanım amacına göre şekillendirilebilir. Örneğin, son giren ilk çıkar(LIFO) veri yapısında kuyruk değişkeni gerekli olmayabilir. Fonksiyon aşağıdaki gibi tanımlanır:
 
 ```cpp
 template <typename T>
