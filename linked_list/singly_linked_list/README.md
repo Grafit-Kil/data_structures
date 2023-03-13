@@ -39,7 +39,7 @@ Sınıfın üye fonksiyonları şunlardır:
 |-------------- | -------------- |
 | Sona Ekleme | $O(1)$ |
 | Başa Ekleme | $O(1)$ |
-| Sondan Silme | $O(1)$ |
+| Sondan Silme | $O(n)$ |
 | Başdan Silme | $O(1)$ |
 | Sıralı Erişim ile Silme | $O(n)$ |
 | Arama | $O(n)$ |
