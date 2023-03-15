@@ -9,6 +9,7 @@
    1. [Algoritma Analizi](./giris/README.md/#algoritma-analizi)
 3. [Bağlı Liste(Linked List)](./linked_list)
     1. [Tek Yönlü Bağlı Liste(Singly Linked List)](./linked_list/singly_linked_list)
+    2. [Çift Yönlü Bağlı Liste(Doubly Linked List)](./linked_list/doubly_linked_list)
 
 ---
 
