@@ -403,4 +403,4 @@ SinglyLinkedList<T>::~SinglyLinkedList()
 }
 ```
 
-<h4 align="center"><a href="/linked_list">< Önceki Sayfa | <a href="../double_linked_list">Sonraki Sayfa ></a></a></h4>
+<h4 align="center"><a href="/linked_list">< Önceki Sayfa | <a href="../doubly_linked_list">Sonraki Sayfa ></a></a></h4>
