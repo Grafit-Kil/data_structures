@@ -34,7 +34,6 @@ Sınıfın üye fonksiyonları şunlardır:
 - Liste Kontrol
 - Liste Görüntüleme
 
-> Sırala erişimde, listenin herhangi bir elemanına erişim yolu ondan önce gelen elemanları ziyaret etmekle mümkündür.
 
 | İşlev | Big O | 
 |-------------- | -------------- |
