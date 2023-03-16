@@ -27,7 +27,7 @@ Algoritma analizi bir işlevin çalışma süresinin başından sonuna kadar ger
 - **En kötü durum analizi(Worst-case analysis):**
   *Girdi kümesindeki bütün değişkenler için en masraflı senaryo maliyetidir.*
 - **Ortalama durum analizi(Avarage-case analysis):**
-  *Girdi kümesindeki bütün değişkenlerin ortalama çıktı maliyetidir. Tabi bu hesaplama çoğunlukla olası olmadığından analizi, bir örneklem kümesindeki bütün çıktıların ortalama maliyeti olarak kabul edebiliriz.*
+  *bir algoritmanın rastgele dağılmış girdilerle performansını analiz etmeyi amaçlayan bir yöntemdir. Bu analizde, girdilerin ortalama maliyeti hesaplanmak yerine, girdilerin rastgele bir örneklemi üzerinde hesaplama yapılır.*
 - **En iyi durum analizi(Best-case analysis):**
   *Girdi kümesindeki değişkenlerin herbirinin işlenme süresince karşılaşılan en düşük maliyetdir.*
 
