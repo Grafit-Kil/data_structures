@@ -18,7 +18,7 @@ struct Node {
 ```
 
 
-#### Tek Yönlü Bağlantılı Liste Sınıfı
+#### Çift Yönlü Bağlantılı Liste Sınıfı
 Bu sınıf, düğümlerin yönetimini üstlenir ve baş(*head) ve kuyruk(*tail) düğümlerini içerir.
 Sınıfın üye fonksiyonları şunlardır:
 
