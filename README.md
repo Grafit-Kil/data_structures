@@ -10,6 +10,7 @@
 3. [Bağlı Liste(Linked List)](./linked_list)
     1. [Tek Yönlü Bağlı Liste(Singly Linked List)](./linked_list/singly_linked_list)
     2. [Çift Yönlü Bağlı Liste(Doubly Linked List)](./linked_list/doubly_linked_list)
+    3. [Dairesel Bağlı Liste(Circular Linked List)](./linked_list/circular_linked_list)
 
 ---
 
