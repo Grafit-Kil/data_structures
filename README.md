@@ -13,6 +13,7 @@
     3. [Dairesel Bağlı Liste(Circular Linked List)](./linked_list/circular_linked_list)
 4. [Dizi(Array)](./array)
 5. [Vektör(Vector)](./vector)
+5. [Yığın(Stack)](./stack)
 
 ---
 
