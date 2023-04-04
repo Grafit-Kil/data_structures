@@ -2,18 +2,20 @@
 #include <cstddef>
 #include <iostream>
 #include <memory>
+#include <optional>
 
-template <typename T> class Stack {
-public:
+template <typename T>
+class Stack {
+ public:
   Stack();
   Stack(std::size_t capacity);
   void push(const T value);
-  T pop();
+  std::optional<T> pop();
   bool empty();
   std::size_t size() const;
   const T &top() const;
 
-private:
+ private:
   void recapacity();
 
   std::size_t m_capacity;
@@ -28,7 +30,8 @@ template <typename T>
 Stack<T>::Stack(std::size_t capacity)
     : m_capacity(capacity), m_size(0), data(new T[capacity]) {}
 
-template <typename T> void Stack<T>::recapacity() {
+template <typename T>
+void Stack<T>::recapacity() {
   T *temp = nullptr;
   if (m_capacity != 0) {
     temp = new T[m_capacity * 2];
@@ -43,7 +46,8 @@ template <typename T> void Stack<T>::recapacity() {
   data.reset(temp);
 }
 
-template <typename T> void Stack<T>::push(const T value) {
+template <typename T>
+void Stack<T>::push(const T value) {
   if (m_size == m_capacity) {
     recapacity();
   }
@@ -51,25 +55,30 @@ template <typename T> void Stack<T>::push(const T value) {
   m_size++;
 }
 
-template <typename T> T Stack<T>::pop() {
+template <typename T>
+std::optional<T> Stack<T>::pop() {
   T temp;
   if (m_size != 0) {
     temp = data[m_size - 1];
     m_size--;
     return temp;
   }
-  return static_cast<T>(0);
+  return std::nullopt;
 }
 
-template <typename T> bool Stack<T>::empty() {
-  if (m_size)
-    return false;
+template <typename T>
+bool Stack<T>::empty() {
+  if (m_size) return false;
 
   return true;
 }
 
-template <typename T> std::size_t Stack<T>::size() const { return m_size; }
-template <typename T> const T &Stack<T>::top() const {
+template <typename T>
+std::size_t Stack<T>::size() const {
+  return m_size;
+}
+template <typename T>
+const T &Stack<T>::top() const {
   return data[m_size - 1];
 }
 int main() {
