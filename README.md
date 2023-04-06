@@ -14,6 +14,7 @@
 4. [Dizi(Array)](./array)
 5. [Vektör(Vector)](./vector)
 5. [Yığın(Stack)](./stack)
+6. [Kuyruk(Queue)](./queue)
 
 ---
 
