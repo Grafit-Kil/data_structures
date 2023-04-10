@@ -1,20 +1,51 @@
-#include <cstddef>
-#include <iomanip>
-#include <iostream>
+## Dairesel Bağlantılı Liste(Circular Linked List)
 
+Dairesel biçimde düzenlenmiş bir grup düğümden oluşan veri yapısıdır. Her düğüm, bir veri öğesi, bir sonraki düğüme ve önceki işaretçi içerir(Tek yönlü de olabilir). Dairesel bağlantılı listede, son düğüm ilk düğüme bağlanarak bir döngü oluşturur.
+
+![alt text](img/circular_linked_list.png)
+
+#### Düğüm Yapısı
+
+```cpp
 template <typename T>
 struct Node {
   Node<T> *next;
   Node<T> *prev;
   T data;
-  Node(T _data) : data(_data), next(nullptr), prev(nullptr) {}
-};
 
+Node(T _data) : data(_data), next(nullptr), prev(nullptr) {}
+};
+```
+
+#### Çift Yönlü Bağlantılı Liste Sınıfı
+Bu sınıf, düğümlerin yönetimini üstlenir ve sadece *iter şaret düğümü barındırır. Tek yönlü bağlı liste ve çift yönlü bağlı liste ile farkı bir baş veya kuyruk yoktur.
+Sınıfın üye fonksiyonları şunlardır:
+
+| İşlev                      | Big O  |
+| -------------------------- | ------ |
+| Ekleme                     | $O(1)$ |
+| Ekleme(Düğüm)              | $O(1)$ |
+| Silme                      | $O(1)$ |
+| Silme(Değer)               | $O(n)$ |
+| Silme(Düğüm)               | $O(n)$ |
+| Listeyi Temizleme          | $O(n)$ |
+| Arama                      | $O(n)$ |
+| Büyüklük                   | $O(n)$ |
+| Listedeki Koparma          | $O(n)$ |
+| Birleştirme                | $O(1)$ |
+| Listedeki Eleman Sayısı    | $O(n)$ |
+| Dairesel Bağlantı Kontrolü | $O(n)$ |
+| Liste Görüntüleme          | $O(n)$ |
+
+---
+
+```cpp
 template <typename T>
 class CircularLinkedList {
  public:
   CircularLinkedList();
   CircularLinkedList(T init_first_node);
+  
   void display();
   void add(const T _data);
   void add(Node<T> *_node);
@@ -27,43 +58,22 @@ class CircularLinkedList {
   void clear();
   bool check_circular();
   std::size_t size();
+  
   ~CircularLinkedList();
 
  private:
   Node<T> *iter;
 };
+```
 
-template <typename T>
-CircularLinkedList<T>::CircularLinkedList() : iter(nullptr) {}
+#### Ekleme
 
-template <typename T>
-CircularLinkedList<T>::CircularLinkedList(T init_first_node) {
-  iter = new Node<T>(init_first_node);
-}
+Ekleme işlevinin 2 ayrı yüklemesi vardır. Yeni element, hemen iterin bir sonrasına eklenir.
 
-template <typename T>
-void CircularLinkedList<T>::display() {
-  std::cout << "+" << std::setfill('-') << std::setw(41) << "+\n";
-  std::cout << std::setfill(' ');
-  std::cout << "| " << std::setw(10) << "Address" << std::setw(7) << "| |";
-  std::cout << std::setw(20) << "Data"
-            << " |" << std::endl;
-  std::cout << "+" << std::setfill('-') << std::setw(41) << "+\n";
-  std::cout << std::setfill(' ');
-  if (iter) {
-    Node<T> *temp_iter = iter;
-    do {
-      std::cout << "| " << std::setw(10) << temp_iter << "| |";
-      std::cout << std::setw(20) << temp_iter->data << " |" << std::endl;
-      temp_iter = temp_iter->next;
-    } while (temp_iter != iter);
-  }
-  std::cout << "+" << std::setfill('-') << std::setw(42) << "+\n\n";
-  std::cout << std::setfill(' ');
-}
-
+```cpp
 template <typename T>
 void CircularLinkedList<T>::add(const T _data) {
+  
   Node<T> *temp = new Node<T>(_data);
   if (iter == nullptr) {
     iter = temp;
@@ -86,6 +96,7 @@ void CircularLinkedList<T>::add(const T _data) {
 template <typename T>
 void CircularLinkedList<T>::add(Node<T> *_node) {
   if (!_node) return;
+  
   if (iter == nullptr) {
     iter = _node;
     iter->next = iter;
@@ -103,7 +114,15 @@ void CircularLinkedList<T>::add(Node<T> *_node) {
     next_temp->prev = _node;
   }
 }
+```
 
+---
+
+#### Silme
+
+Silme işlevinin 3 ayrı yüklemesi vardır. Herhangi bir parametre almadığında iter listeden kaldırılır bu karmaşıklığın O(1) olamsını sağlar, argüman aldığı taktirde önce listede kaldırılacak düğümü bulacağından karmaşıklık O(n) olacağı anlamına gelir.
+
+```cpp
 template <typename T>
 bool CircularLinkedList<T>::remove() {
   if (iter == nullptr) {
@@ -119,6 +138,7 @@ bool CircularLinkedList<T>::remove() {
   }
   return true;
 }
+
 
 template <typename T>
 bool CircularLinkedList<T>::remove(Node<T> *delenda) {
@@ -159,20 +179,15 @@ bool CircularLinkedList<T>::remove(const T delenda) {
   } while (iter != cmp_loop_end);
   return true;
 }
+```
 
-template <typename T>
-Node<T> *CircularLinkedList<T>::find(const T _data) {
-  if (!iter) return nullptr;
+---
 
-  Node<T> *cmp_loop_end = iter;
-  do {
-    iter = iter->next;
-    if (iter->data == _data) return iter;
-  } while (iter != cmp_loop_end);
+#### Koparma
 
-  return nullptr;
-}
+Bağlı listenin belirli bir düğümü silmeden, bağlı listeden çıkarmanıza olanak tanır. Düğüm bağlı listeden ayrılırken, bağlantıları düzgün bir şekilde güncellemek için gereken işlemleri yapar. Üzerinde işlem yapıldıktan sonra listeden kaldırmak istenenlen düğümler için kullanışlı bir senaryodur. Listeden ayrılan düğüm kullanıcı tarafından silinmelidir. Aksi halde bellek sızıntısına sebep olur.
 
+```cpp
 template <typename T>
 [[nodiscard]] Node<T> *CircularLinkedList<T>::detach_from_list(Node<T> *_node) {
   if (!_node || !iter) return nullptr;
@@ -196,6 +211,18 @@ template <typename T>
   return detach;
 }
 
+/*********************************************/
+auto detached_node = obj.detach_from_list(obj.find(value));
+/***********************************************/
+```
+
+---
+
+#### Birleştirme
+
+Bu işlev, bir dairesel bağlı listeyi başka bir dairesel bağlı liste ile birleştirmek için kullanılır. İşlev, taşınacak listeyi argüman olarak alır. Alınan listenin dairesel yapısı bozulur ve ana listeyle birleştirilir. Birleştirme işlemi kopyalama ile değil doğrudan kullanım hakların devredilmesi ile yapılır. Argüman olarak alınan liste ana listeye bağlanmadan önce dikkatlice ele alınmalıdır. Aksi takdirde, listenin yapısı bozulabilir.
+
+```cpp
 template <typename T>
 void CircularLinkedList<T>::move_list_to_list(CircularLinkedList<T> &list) {
   if (!list.iter) return;
@@ -214,39 +241,13 @@ void CircularLinkedList<T>::move_list_to_list(CircularLinkedList<T> &list) {
     list.iter = nullptr;
   }
 }
+```
 
-template <typename T>
-void CircularLinkedList<T>::clear() {
-  if (iter == nullptr) {
-  } else {
-    Node<T> *cmp_loop_end = iter->prev;
+#### Dairesel Bağlantı Kontrolü
 
-    while (cmp_loop_end != iter) {
-      iter = iter->next;
-      delete iter->prev;
-    }
-    delete iter;
-    iter = nullptr;
-  }
-}
+Listenin Dairesel yapısının korunduğunu kontrol eder ama listenin yapısı bozulmuşsa sonsuz döngüye girme ihtimali mendana gelir. Bunun için eleman sayısı ile kontrol edilebilir.
 
-template <typename T>
-std::size_t CircularLinkedList<T>::size() {
-  std::size_t count{0};
-
-  if (iter == nullptr) return count;
-
-  Node<T> *cmp_loop_end = iter->prev;
-
-  count++;
-  while (cmp_loop_end != iter) {
-    count++;
-    iter = iter->next;
-  }
-
-  return count;
-}
-
+```cpp
 template <typename T>
 bool CircularLinkedList<T>::check_circular() {
   if (iter == nullptr) return true;
@@ -255,63 +256,13 @@ bool CircularLinkedList<T>::check_circular() {
 
   do {
     if (cmp_loop_end == iter) return true;
+    /*infinite loop probability*/
+    /*if(count > m_size) return false; */
     iter = iter->next;
   } while (iter != nullptr);
   return false;
 }
+```
 
-template <typename T>
-CircularLinkedList<T>::~CircularLinkedList() {
-  if (iter != nullptr) {
-    Node<T> *cmp_loop_end = iter->prev;
 
-    while (cmp_loop_end != iter) {
-      iter = iter->next;
-      delete iter->prev;
-    }
-    delete iter;
-  }
-}
-
-int main() {
-  CircularLinkedList<int> list{};
-
-  list.add(1);
-  list.add(2);
-  auto x = new Node<int>(3);
-  list.add(x);
-  list.add(4);
-  list.add(5);
-  list.display();
-
-  list.remove();
-  list.display();
-  list.remove(x);
-  list.display();
-
-  auto y = list.find(4);
-  std::cout << "Node y = " << y->data << "\n";
-
-  auto z = list.detach_from_list(y);
-
-  list.display();
-
-  CircularLinkedList<int> list2{};
-
-  list2.add(10);
-  list2.add(20);
-  list2.add(30);
-  list2.add(40);
-
-  list.move_list_to_list(list2);
-  list.display();
-
-  std::cout << "check circular >> " << list.check_circular() << "\n";
-  std::cout << "size = " << list.size() << "\n";
-
-  list.clear();
-  list.display();
-
-  std::cout << "check circular >> " << list.check_circular() << "\n";
-  std::cout << "size = " << list.size() << "\n";
-}
+<h4 align="center"><a href="/linked_list/doubly_linked_list">< Önceki Sayfa | <a href="/array">Sonraki Sayfa ></a></a></h4>

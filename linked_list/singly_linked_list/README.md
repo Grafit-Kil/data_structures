@@ -2,6 +2,8 @@
 
 Tek yönlü bağlantılı liste, verilere erişimin sadece düğümler(Node) üzerinde tek yönlü yapılabildiği veri yapılarıdır. Düğümler bellekte rastgele konumlarda yer alır ve erişim işlemi sadece baş düğümün adresine sahip olmakla mümkündür. Baş düğümün adresini kaybetmeden diğer düğümlere erişmek için bir gezgin(iterator) işaretçiye ihtiyaç vardır.
 
+![img](img/singly_linked_list.png)
+
 #### Düğüm Yapısı
 
 Düğüm, bir adet T türünden veri (data) ve bir adet T türünden işaretçi (*next) barındırır. *next, bir sonraki düğümün adresini tutar.
@@ -35,18 +37,18 @@ Sınıfın üye fonksiyonları şunlardır:
 
 > Sırala erişimde, listenin herhangi bir elemanına erişim yolu ondan önce gelen elemanları ziyaret etmekle mümkündür.
 
-| İşlev | Big O | 
-|-------------- | -------------- |
-| Sona Ekleme | $O(1)$ |
-| Başa Ekleme | $O(1)$ |
-| Sondan Silme | $O(n)$ |
-| Başdan Silme | $O(1)$ |
-| Sıralı Erişim ile Silme | $O(n)$ |
-| Arama | $O(n)$ |
-| Takas | $O(n)$ |
-| Sıralama | $O(n^2)$ |
-| Sıralı Erişim ile Eleman Almak | $O(n)$ |
-| Liste Görüntüleme | $O(n)$ |
+| İşlev                          | Big O    |
+| ------------------------------ | -------- |
+| Sona Ekleme                    | $O(1)$   |
+| Başa Ekleme                    | $O(1)$   |
+| Sondan Silme                   | $O(n)$   |
+| Başdan Silme                   | $O(1)$   |
+| Sıralı Erişim ile Silme        | $O(n)$   |
+| Arama                          | $O(n)$   |
+| Takas                          | $O(n)$   |
+| Sıralama                       | $O(n^2)$ |
+| Sıralı Erişim ile Eleman Almak | $O(n)$   |
+| Liste Görüntüleme              | $O(n)$   |
 
 ```cpp
 template <typename T>

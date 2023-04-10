@@ -2,6 +2,8 @@
 
 Çift yönlü bağlı liste, tek yönlü bağlı listeden farklı olarak hem kendinden önceki düğüme de işaret eden veri yapılarıdır. 
 
+![img](img/doubly_linked_list.png)
+
 #### Düğüm Yapısı
 
 Düğüm, bir adet T türünden veri (data), iki adet T türünden işaretçi (*next) ve (*prev) barındırır. *next, bir sonraki düğümün adresini ve *prev bir önceki düğümün adresini tutar.
@@ -451,4 +453,4 @@ DoublyLinkedList<T>::~DoublyLinkedList() {
 }
 ```
 
-<h4 align="center"><a href="/linked_list">< Önceki Sayfa | <a href="../circular_linked_list">Sonraki Sayfa ></a></a></h4>
+<h4 align="center"><a href="/linked_list/singly_linked_list">< Önceki Sayfa | <a href="/linked_list/circular_linked_list">Sonraki Sayfa ></a></a></h4>

@@ -5,16 +5,16 @@
 
 1. [Ön söz](#1-ön-söz)
    1. [Kullanınlan Araçlar ve Ortam](#başlarken)
-2. [Veri Yapıları Nedir?](./giris/README.md/#veri-yapıları-nedir)
-   1. [Algoritma Analizi](./giris/README.md/#algoritma-analizi)
+2. [Veri Yapıları Nedir?](./intro/README.md/#veri-yapıları-nedir)
+   1. [Algoritma Analizi](./intro/README.md/#algoritma-analizi)
 3. [Bağlı Liste(Linked List)](./linked_list)
     1. [Tek Yönlü Bağlı Liste(Singly Linked List)](./linked_list/singly_linked_list)
     2. [Çift Yönlü Bağlı Liste(Doubly Linked List)](./linked_list/doubly_linked_list)
     3. [Dairesel Bağlı Liste(Circular Linked List)](./linked_list/circular_linked_list)
 4. [Dizi(Array)](./array)
 5. [Vektör(Vector)](./vector)
-5. [Yığın(Stack)](./stack)
-6. [Kuyruk(Queue)](./queue)
+6. [Yığın(Stack)](./stack)
+7. [Kuyruk(Queue)](./queue)
 
 ---
 
