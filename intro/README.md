@@ -201,4 +201,4 @@ void foo(int bar) {
 }
 ```
 
-<h4 align="center"><a href="/">< Önceki Sayfa | <a href="../linked_list">Sonraki Sayfa ></a></a></h4>
+<h4 align="center"><a href="../.">< Önceki Sayfa | <a href="../linked_list">Sonraki Sayfa ></a></a></h4>
