@@ -140,4 +140,4 @@ valgrind --leak-check=full -s --track-origins=yes ./test
 ***:warning: Burada ise sızıntının olduğu yeri vermektedir(bizim durumumuzda main içerisinde).***
 > \==18880==    by 0x1091E9: main (in /home/dosya_yolu/test)
 
-<h4 align="center"><a href="./giris">Sonraki Sayfa ></a></h4>
+<h4 align="center"><a href="./intro">Sonraki Sayfa ></a></h4>
