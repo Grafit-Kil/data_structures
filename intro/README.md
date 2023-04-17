@@ -68,13 +68,11 @@ Karmaşıklık düzeyleri en azdan en çoğa doğru aşağıda ufak kod parçac�
 
 - **Sabit(Constant): $O(1)$**
 
-O(1) karmaşıklığı veri miktarından bağımsızdır ve en verimli düzeydir.
-> $\(f(x) = 2\) \space \space \space \space \space   => O(1)$
+O(1) karmaşıklığı veri miktarından bağımsızdır ve en verimli düzeydir Örneğin, bir liste düşünelim ve bu listenin ilk 2 elamanın toplamını istiyoruz. O halde liste 1'000 elamana da sahip olsa 100'000 elemana da sahip olsa yapacağı işlem sayısı değişmeyeceğinden bu ifadelere sabit(constant) denilmektedir.
+> $\(f(x) = 1\) \space \space \space \space \space   => O(1)$
 ```cpp
-int foo(int bar, int baz){
-    int qux = bar + baz;
-    qux += bar - baz;
-    return qux;
+auto sum(std::vector<type> list){
+    return list[0] + list[1];
 }
 ```
 
@@ -82,12 +80,15 @@ int foo(int bar, int baz){
 
 Karmaşıklık düzeyi logaritmik orantıya sahip olaması artan veri miktarından çok az etkilenmesini sağlar. Maliyet açısından oldukça verimlidir. Sıralı veri yapılarında arama işlemleri gibi uygulamalarda sıklıkla karşılaşılır. bkz: [Binary Search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 > $\(f(x) = log2(x) + 1\) \space \space \space \space \space   => O(log \space n)$
+
 ```cpp
-void foo(int bar){
-    while (bar > 0){  
-        bar /= 2;  
+int foo(int size){
+    int count;
+    while (size > 0){  
+        size /=2;
+        count++;   
     }
-    std::cout << bar << std::endl;
+    return count++;
 }
 ```
 
@@ -95,6 +96,7 @@ void foo(int bar){
 
 O(√n) karmaşıklık düzeyi, veri miktarı artışına kıyasla daha yavaş bir artış gösterir. Bu, veri miktarının tamamının işlenmemesi durumlarında karşımıza çıkabilir. Örneğin, yalnızca belirli bir özelliğe sahip verilerin aranması veya benzer verilerin de dahil edilmesi durumlarında kullanılabilir.
 > $\(f(x) = \sqrt{n} + 1 \) \space \space \space \space \space   => O(\sqrt{n})$
+
 ```cpp
 int foo(const std::vector<int> &vec, int bar){
     for(std::size_t i = 0; i < std::sqrt(vec.size()); i++){
@@ -107,7 +109,8 @@ int foo(const std::vector<int> &vec, int bar){
 
 - **Doğrusal(Linear): $O(n)$**
 
-O(n) karmaşıklığında maliyet, veri miktarı ile ters orantılıdır.
+O(n) karmaşıklığında maliyet, veri miktarı ile doğru orantılıdır. Örneğin bir listenin tüm elemanlarının toplamını standart çıktıya(Standard Output) ileten işlev:
+
 > $\(f(x) = x + 1\) \space \space \space \space \space   => O(n)$
 
 ```cpp
@@ -117,7 +120,7 @@ int foo(std::vector<int> &vec){
     for(const auto &i : vec){
         bar += i;
     }
-    --bar;
+    std::cout << bar;
     
     return bar;
 }
@@ -125,7 +128,8 @@ int foo(std::vector<int> &vec){
 
 - **Doğrusal-Logaritmik(Linearithmic): $O(n \space log \space n)$**
 
-Maliyet, veri miktarının doğrusal artmasına rağmen logaritmik bir oranda artar ve verimliliğini koruyabilir.
+Maliyet, veri miktarının doğrusal artmasına rağmen logaritmik bir oranda artar ve verimliliğini düşük veri boyutları için koruyabilir.
+
 > $\(f(x) = x * log2(x)\) \space \space \space \space \space   => O(n log \space n)$
 
 ``` cpp
@@ -154,7 +158,7 @@ void foo(std::vector<int> &vec){
 
 - **Polinomsal(Polynomial): $(n^p)$**
 
-Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik( $O(n^3)$ ) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1)$ ile $O(\infty)$ arasında olabilir.
+Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik( $O(n^3)$ ) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1'1)$ ile $O(\infty)$ arasında olabilir.
 > $\(f(x) = x^y + ...\) \space \space \space \space \space   => O(n^p)$
 ```cpp
 void foo(std::vector<int> &vec){
@@ -172,8 +176,10 @@ void foo(std::vector<int> &vec){
 
 - **Üstel(Exponential): $(2^n)$**
 
-Veri miktarı ve işlem sayısı çok daha hızlı artar. Bkz: [Hücre Bölünmesi](https://www.youtube.com/watch?v=SEejivHRIbE)
+Veri miktarı ve işlem sayısı çok daha hızlı artar. Bkz: [Hücre Bölünmesi](https://www.youtube.com/watch?v=SEejivHRIbE), bölünmenin her adımında 2 ye katlanarak artar.
+
 > $\(f(x) = 2^x + 2\) \space \space \space \space \space   => O(2^n)$
+
 ```cpp
 void foo(int bar, int baz) {
   std::size_t count = 0;
