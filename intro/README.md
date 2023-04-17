@@ -181,9 +181,9 @@ Veri miktarı ve işlem sayısı çok daha hızlı artar. Bkz: [Hücre Bölünme
 > $\(f(x) = 2^x + 2\) \space \space \space \space \space   => O(2^n)$
 
 ```cpp
-void foo(int bar, int baz) {
+void foo(int baz) {
   std::size_t count = 0;
-  for(std::size_t i = 0; i < std::pow(bar,baz); i++){
+  for(std::size_t i = 0; i < std::pow(2,baz); i++){
     count++;
   }
   std::cout << count << std::endl;
