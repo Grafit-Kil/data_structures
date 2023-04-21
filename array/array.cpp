@@ -53,6 +53,7 @@ Array<T, N>::Array(std::initializer_list<T> init_list) : data(new T[N]) {
 
 template <typename T, std::size_t N>
 Array<T, N> &Array<T, N>::operator=(const Array &obj) {
+  if(this == &obj) {return *this;}
   std::copy(obj.data.get(), obj.data.get() + N, this->data.get());
   return *this;
 }
