@@ -32,7 +32,7 @@ class Vector {
   void clear();
 
  private:
-  void recapacity();
+  void reallocate();
 
   std::size_t m_capacity;
   std::size_t m_size;
@@ -121,7 +121,7 @@ void Vector<T>::resize(std::size_t new_size) {
 }
 
 template <typename T>
-void Vector<T>::recapacity() {
+void Vector<T>::reallocate() {
   T *temp = nullptr;
   if (m_capacity != 0) {
     temp = new T[m_capacity * 2];
@@ -139,7 +139,7 @@ void Vector<T>::recapacity() {
 template <typename T>
 void Vector<T>::push_back(const T value) {
   if (size() == capacity()) {
-    recapacity();
+    reallocate();
   }
   data[size()] = value;
   m_size++;
@@ -160,7 +160,7 @@ void Vector<T>::insert(const std::size_t index, const T value) {
   if (index > m_size) return;
 
   if (size() == capacity()) {
-    recapacity();
+    reallocate();
   }
   for (std::size_t i = m_size; i >= 0; i--) {
     if (i == index) {
