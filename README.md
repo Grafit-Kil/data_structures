@@ -15,6 +15,8 @@
 5. [Vektör(Vector)](./vector)
 6. [Yığın(Stack)](./stack)
 7. [Kuyruk(Queue)](./queue)
+8. [Ağaç(Tree)](./tree)
+   1. [İkili Arama Ağacı(Binary Search Tree)](./tree/binary_search_tree)
 
 ---
 
