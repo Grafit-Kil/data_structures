@@ -52,17 +52,17 @@ Karmaşıklık düzeyleri en azdan en çoğa doğru aşağıda ufak kod parçac�
 > **Note**: $n$ => Veri miktarı.
 
 
-| Karmaşıklık | $n = 10, \space p = 4$ | $n = 100, \space p = 4$ |
-|----------|----------|----------|
-| **Sabit(Constant): $O(1)$**| $1$ | $1$ |
-| **Logaritmik(Logarithmic): $O(log \space n)$** | 3 | 6|
-| **Karekök(Square Root): $O(\sqrt{n})$** | 3 | 10 |
-| **Doğrusal(Linear): $O(n)$** | 10 | 100 |
-| **Doğrusal-Logaritmik(Linearithmic): $O(n \space log \space n)$** | 20 | 400 |
-| **İkinci Dereceden(Quadratic): $O(n^2)$** | 100 | 10000 |
-| **Polinomsal(Polynomial): $(n^p)$** | 10000 | 100000000  |
-| **Üstel(Exponential): $(2^n)$** | 1024  | 1.2676506e+30 |
-| **Faktöriyel(Factorial): $O(n!)$** | 3628800 | 9.332622e+157 |
+| Karmaşıklık                                                       | $n = 10, \space p = 4$ | $n = 100, \space p = 4$ |
+| ----------------------------------------------------------------- | ---------------------- | ----------------------- |
+| **Sabit(Constant): $O(1)$**                                       | $1$                    | $1$                     |
+| **Logaritmik(Logarithmic): $O(log \space n)$**                    | 3                      | 6                       |
+| **Karekök(Square Root): $O(\sqrt{n})$**                           | 3                      | 10                      |
+| **Doğrusal(Linear): $O(n)$**                                      | 10                     | 100                     |
+| **Doğrusal-Logaritmik(Linearithmic): $O(n \space log \space n)$** | 20                     | 400                     |
+| **İkinci Dereceden(Quadratic): $O(n^2)$**                         | 100                    | 10000                   |
+| **Polinomsal(Polynomial): $(n^p)$**                               | 10000                  | 100000000               |
+| **Üstel(Exponential): $(2^n)$**                                   | 1024                   | 1.2676506e+30           |
+| **Faktöriyel(Factorial): $O(n!)$**                                | 3628800                | 9.332622e+157           |
 
 ---
 
@@ -82,28 +82,66 @@ Karmaşıklık düzeyi logaritmik orantıya sahip olaması artan veri miktarınd
 > $\(f(x) = log2(x) + 1\) \space \space \space \space \space   => O(log \space n)$
 
 ```cpp
-int foo(int size){
-    int count;
-    while (size > 0){  
-        size /=2;
-        count++;   
+/* Binary Search sıralı dizilerde arama yapmak için kullanılan bir algoritmadır.*/
+bool binary_search(const std::vector<int>& arr, const int val)
+{
+  int max_index = arr.size() - 1;
+  int min_index{0};
+  /* Değer aralığın dışında olup olmdığını kotrol et. */
+  if (arr[min_index] > val || arr[max_index] < val)
+  {
+    return false;
+  }
+
+  int range;
+  while (1)
+  {
+    /* Eğer değer aranan aralığın en küçük veya en büyük indeksinde olma durumunu kontrol et. */
+    if (val == arr[max_index] || val == arr[min_index])
+      return true;
+    /* Aranılan aralığın taşma durumu kontrol et.*/
+    if (max_index < min_index)
+      return false;
+
+    range = max_index - min_index;
+    /* Bu noktada değerin arandığı aralık her seferinde bir öncekinin yarısı kadar olduğuna
+       dikkat ediniz. Bu durumda 100 elemanlı bir dizi için en fazla log2(100) == 6.643 == 7
+       kere tekrarlanması beklenir. */
+    if (val < arr[max_index - range / 2])
+    {
+
+      max_index -= range / 2;
     }
-    return count++;
+    else
+    {
+      if ((range / 2) % 2 == 0)
+      {
+        min_index += range / 2 - 1;
+      }
+      else
+      {
+        min_index += range / 2;
+      }
+    }
+  }
 }
+
 ```
 
 - **Karekök(Square Root): $O(\sqrt{n})$**
 
 O(√n) karmaşıklık düzeyi, veri miktarı artışına kıyasla daha yavaş bir artış gösterir. Bu, veri miktarının tamamının işlenmemesi durumlarında karşımıza çıkabilir. Örneğin, yalnızca belirli bir özelliğe sahip verilerin aranması veya benzer verilerin de dahil edilmesi durumlarında kullanılabilir.
+
 > $\(f(x) = \sqrt{n} + 1 \) \space \space \space \space \space   => O(\sqrt{n})$
 
 ```cpp
-int foo(const std::vector<int> &vec, int bar){
-    for(std::size_t i = 0; i < std::sqrt(vec.size()); i++){
-        if(vec[i] == bar)
-            retrun i;
+/* Bir değerin kendi kareköküne kadar olan tüm tam sayıları bul.
+   örneğin 40 için {1,2,3,4,5,6}`dır.
+*/
+void foo(const int n){
+    for (int i = 1; i <= std::sqrt(n); ++i) {
+        std::cout << i << " ";
     }
-    return -1
 }
 ```
 
@@ -133,10 +171,12 @@ Maliyet, veri miktarının doğrusal artmasına rağmen logaritmik bir oranda ar
 > $\(f(x) = x * log2(x)\) \space \space \space \space \space   => O(n log \space n)$
 
 ``` cpp
-void foo(std::vector<int> &vec){
-    for (std::size_t i = 0; i < vec.size(); i++) {
-        for (std::size_t j = 1; j < vec.size(); j *= 2) {
-            vec[i] += vec[j];
+/* Örneğin elimizde alt elemanları sıralı olarak verilen 2 boyutlu bir dizi olsun. Bu dizinin 
+   her alt kümesinde binary search ile bir değeri arayalım. Şöyle ki: */
+void foo(std::vector<std::vector<int>> &vec, int val){
+    for(auto &i : vec){
+        if(binary_search(i, val)){
+            std::cout << val <<" bulundu.\n";
         }
     }
 }
@@ -146,6 +186,7 @@ void foo(std::vector<int> &vec){
 
 Doğrusal yapılara kıyasla çok daha hızlı büyür. Maliyet, veri miktarı artışından karesel olarak etkilenir. İç içe döngülerde(nested loop) sıkça rastladığımız bir karmaşıklıktır. Her iç içe döngü $O(n^2)$ değildir.
 > $\(f(x) = x^2\) \space \space \space \space \space   => O(n^2)$
+
 ```cpp
 void foo(std::vector<int> &vec){
     for(std::size_t i = 0; i < vec.size(); i++){
@@ -158,9 +199,11 @@ void foo(std::vector<int> &vec){
 
 - **Polinomsal(Polynomial): $(n^p)$**
 
-Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik( $O(n^3)$ ) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1'1)$ ile $O(\infty)$ arasında olabilir.
+Polinomsal büyüme, veri mikarı ve verinin nasıl işlendiğiyle ilişkilidir. Algoritmanın nasıl gerçeklendiği ile alakalıdır. Aslında ikinci dereceden ve kübik( $O(n^3)$ ) düzeylerinide kapsar. Karmaşıklık düzeyi $O(1)$ ile $O(\infty)$ arasında olabilir.
 > $\(f(x) = x^y + ...\) \space \space \space \space \space   => O(n^p)$
+
 ```cpp
+/* Temsilidir. */
 void foo(std::vector<int> &vec){
     for (std::size_t i = 0; i < vec.size(); i++) {
         for (std::size_t j = 0; j < vec.size(); j++) {
@@ -181,12 +224,13 @@ Veri miktarı ve işlem sayısı çok daha hızlı artar. Bkz: [Hücre Bölünme
 > $\(f(x) = 2^x + 2\) \space \space \space \space \space   => O(2^n)$
 
 ```cpp
-void foo(int baz) {
-  std::size_t count = 0;
-  for(std::size_t i = 0; i < std::pow(2,baz); i++){
-    count++;
-  }
-  std::cout << count << std::endl;
+/* Özyinelemeli olarak fibonacci dizisinin hesaplanamsı.*/
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    }
+
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 ```
 
@@ -199,6 +243,7 @@ $15! = 1307674368000$ \
 $20! = 2432902008176640000$
 
 > $\(f(x) = x!\) \space \space \space \space \space   => O(n!)$
+
 ```cpp
 void foo(int bar) {
     for(unsigned int i = 0; i < bar; i++){
